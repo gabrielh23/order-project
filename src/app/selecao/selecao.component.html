@@ -1,0 +1,13 @@
+<div class="header">
+    <h2>{{titulo}}</h2>
+    <div *ngIf="escolhaAte > 1">
+        Escolha até {{escolhaAte}} ({{opcoesSelecionadas.length}} selecionados)
+    </div>
+</div>
+
+<label *ngFor="let opcao of opcoes">
+    <input [type]="escolhaAte > 1 ? 'checkbox' : 'radio'" 
+    [checked]="opcoesSelecionadas.indexOf(opcao) !== -1" 
+    (change)="seleciona(opcao)"
+    [disabled]="estaDesabilitado(opcao)">{{opcao}}
+</label>
